@@ -1,0 +1,22 @@
+{
+  "routines": [
+    {
+      "id": 1,
+      "title": "Legs",
+      "exercise_1": "Leg Press",
+      "exercise_2": "Sqauts",
+      "exercise_3": "Lunges",
+      "exercise_4": "Hamstring Curls",
+      "exercise_5": "Quad Extensions"
+    },
+    {
+      "title": "Arms",
+      "exercise_1": "Bicep curls",
+      "exercise_2": "Pull Ups",
+      "exercise_3": "Push Ups",
+      "exercise_4": "Butterflies",
+      "exercise_5": "Pull Downs",
+      "id": 2
+    }
+  ]
+}

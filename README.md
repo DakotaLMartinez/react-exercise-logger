@@ -1,5 +1,56 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Learning React by building an Exercise Logger
+
+## Domain Model
+
+Here's a sketch for our eventual goal for the domain model. We'll want to be able to support creating a routine that has multiple exercises, A workout is an instance of a person doing that routine. A workout will have many exercise_logs, each of which belongs to an exercise and the workout.
+
+### ExerciseLog
+  belongs_to :exercise
+  belongs_to :workout
+  belongs_to :user
+### Routine
+  has_many :routine_exercises
+  has_many :exercises, through: :routine_exercises
+  belongs_to :creator, class_name: 'User'
+### RoutineExercise
+  belongs_to :exercise 
+  belongs_to :routine 
+### Exercise
+  has_many :routine_exercises
+  has_many :routines, through: :routine_exercises
+  has_many :exercise_logs 
+  has_many :workouts, through: :exercise_logs
+### Workout
+  belongs_to :routine 
+  has_many :exercise_logs 
+  has_many :exercises, through: :exercise_logs
+
+Simplified version of domain
+
+### Routine 
+  attributes
+  :title
+  :exercise_1
+  :exercise_2
+  :exercise_3
+  :exercise_4
+  :exercise_5
+  
+### Workout
+  :date
+  :name
+  :exercise_1_notes
+  :exercise_2_notes
+  :exercise_3_notes
+  :exercise_4_notes
+  :exercise_5_notes
+
+
+### Concepts
+- Controlled Forms
+
 ## Available Scripts
 
 In the project directory, you can run:
