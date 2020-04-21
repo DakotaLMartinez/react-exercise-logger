@@ -48,6 +48,8 @@ Simplified version of domain
   :exercise_5_notes
 
 
+How do we handle updating the state of a parent component from a child component?
+
 ### Concepts
 - Controlled Forms
 
