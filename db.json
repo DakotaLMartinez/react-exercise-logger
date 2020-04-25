@@ -18,5 +18,18 @@
       "exercise_5": "Pull Downs",
       "id": 2
     }
+  ],
+  "workouts": [
+    {
+      "routine_id": 1,
+      "date": "2020-04-23",
+      "name": "Shaun",
+      "exercise_1_notes": "10 reps of 150 lbs",
+      "exercise_2_notes": "10 reps of 20 squats",
+      "exercise_3_notes": "skipped",
+      "exercise_4_notes": "10 reps of 30lb",
+      "exercise_5_notes": "10 reps of 20lb",
+      "id": 1
+    }
   ]
 }

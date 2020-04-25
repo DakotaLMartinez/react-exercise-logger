@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import RoutinesList from './RoutinesList';
 import NewRoutineForm from './NewRoutineForm';
 import NewWorkoutForm from './NewWorkoutForm';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 class RoutinesContainer extends Component {
 
@@ -10,40 +18,17 @@ class RoutinesContainer extends Component {
     this.state = {
       routines: [],
       workouts: [],
-      activeForm: null,
-      activeRoutine: null
+      loading: true
     }
     this.addRoutine = this.addRoutine.bind(this)
-    this.handleAddRoutineButtonClick = this.handleAddRoutineButtonClick.bind(this)
-    this.handleAddWorkoutButtonClick = this.handleAddWorkoutButtonClick.bind(this)
   }
 
   componentDidMount() {
     fetch('http://localhost:3001/routines')
       .then(response => response.json())
       .then(routines => {
-        this.setState({ routines: routines })
+        this.setState({ routines: routines, loading: false })
       })
-  }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return nextProps !== this.props || nextState !== this.state
-  // }
-
-  handleAddRoutineButtonClick(e) {
-    e.preventDefault();
-    this.setState({
-      activeForm: 'addRoutine'
-    })
-  }
-
-  handleAddWorkoutButtonClick(routineId) {
-    this.setState((state, props) => {
-      return {
-        activeForm: 'addWorkout',
-        activeRoutine: state.routines.find(routine => routine.id == routineId)
-      }
-    })
   }
 
   addRoutine(routine) {
@@ -83,25 +68,36 @@ class RoutinesContainer extends Component {
       })
   }
 
-  render() {
+  renderLoadedContent() {
     return (
-      <section>
-        <h3>Routines List</h3>
+      <React.Fragment>
         <RoutinesList 
           routines={this.state.routines} 
           handleAddWorkoutClick={this.handleAddWorkoutButtonClick}
         />
         <h4>
-          <button onClick={this.handleAddRoutineButtonClick}>Add Routine</button></h4>
-        {this.state.activeForm === 'addRoutine' && 
-          <NewRoutineForm addRoutine={this.addRoutine} /> 
-        }
-        {this.state.activeForm === 'addWorkout' && 
-          <NewWorkoutForm 
-            addWorkout={this.addWorkout} 
-            routine={this.state.activeRoutine}
-          /> 
-        }
+          <Link to="/routines/new">Add Routines</Link>
+        </h4>
+        <Switch>
+          <Route path="/routines/new">
+            <NewRoutineForm addRoutine={this.addRoutine} />
+          </Route>
+          <Route path="/routines/:routineId/workouts/new" render={(routerProps) => 
+            <NewWorkoutForm 
+              addWorkout={this.addWorkout} 
+              routine={this.state.routines.find(routine => routerProps.match.params.routineId == routine.id)}
+            />
+          }>
+          </Route>
+        </Switch>
+      </React.Fragment>
+    )
+  }
+  render() {
+    return (
+      <section>
+        <h3>Routines List</h3>
+        {this.state.loading ? 'Loading...' : this.renderLoadedContent()}
       </section>
     )
   }

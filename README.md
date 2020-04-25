@@ -50,6 +50,20 @@ Simplified version of domain
 
 How do we handle updating the state of a parent component from a child component?
 
+Potential Routes:
+/routines -> RoutinesContainer
+/routines/new -> NewRoutineForm
+/routines/:id -> RoutineShow
+/routines/:id/workouts/new -> NewWorkoutForm
+```
+<Route path="/routines/:routineId/workouts/new" 
+  render={(props) => {
+    return <NewWorkoutForm 
+      addWorkout={this.addWorkout} 
+      routine={this.state.routines.find(routine => routine.id == props.match.params.routineId)}
+    />
+  }}/>
+```
 ### Concepts
 - Controlled Forms
 
