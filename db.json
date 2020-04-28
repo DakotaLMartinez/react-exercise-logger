@@ -17,6 +17,24 @@
       "exercise_4": "Butterflies",
       "exercise_5": "Pull Downs",
       "id": 2
+    },
+    {
+      "title": "Core",
+      "exercise_1": "Crunches",
+      "exercise_2": "Leg raises",
+      "exercise_3": "Planks",
+      "exercise_4": "Medicine Ball Situps",
+      "exercise_5": "Rope pulldowns",
+      "id": 3
+    },
+    {
+      "title": "Core",
+      "exercise_1": "Crunches",
+      "exercise_2": "Leg raises",
+      "exercise_3": "Planks",
+      "exercise_4": "Medicine Ball Situps",
+      "exercise_5": "Rope pulldowns",
+      "id": 4
     }
   ],
   "workouts": [

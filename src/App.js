@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import RoutinesContainer from './components/RoutinesContainer';
+import RoutinesContainer from './components/routines/RoutinesContainer';
+import Navbar from './components/Navbar';
+import NewRoutineForm from './components/routines/NewRoutineForm';
+import NewWorkoutForm from './components/workouts/NewWorkoutForm';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,17 +13,91 @@ import {
   useParams
 } from "react-router-dom";
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" component={RoutinesContainer} />
-        <Route path="/routines">
-          <RoutinesContainer /> 
-        </Route>
-      </Switch>
-    </Router>
-  );
+class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      routines: [],
+      workouts: [],
+      loading: true
+    }
+    this.addRoutine = this.addRoutine.bind(this)
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/routines')
+      .then(response => response.json())
+      .then(routines => {
+        this.setState({ routines: routines, loading: false })
+      })
+  }
+
+  addRoutine(routine) {
+    return fetch('http://localhost:3001/routines', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(routine)
+    })
+      .then(res => res.json())
+      .then(routine => {
+        // debugger
+        this.setState((state) =>{
+          return {
+            routines: [...state.routines, routine]
+          }
+        })
+      })
+      
+  }
+
+  addWorkout(workout) {
+    fetch('http://localhost:3001/workouts', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(workout)
+    })
+      .then(res => res.json())
+      .then(workout => {
+        debugger
+        this.setState((state, props) =>{
+          return {
+            workouts: [...state.workouts, workout]
+          }
+        })
+      })
+  }
+
+  render() {
+    return (
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/routines">
+            <RoutinesContainer routines={this.state.routines} /> 
+          </Route>
+          <Route path="/routines/new" render={(routerProps) => 
+            <NewRoutineForm 
+              addRoutine={this.addRoutine} 
+              history={routerProps.history}
+            />
+          }>
+          </Route>
+          <Route path="/routines/:routineId/workouts/new" render={(routerProps) => 
+            <NewWorkoutForm 
+              addWorkout={this.addWorkout} 
+              routine={this.state.routines.find(routine => routerProps.match.params.routineId == routine.id)}
+            />
+          }>
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;

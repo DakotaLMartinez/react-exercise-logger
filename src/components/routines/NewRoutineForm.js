@@ -23,14 +23,10 @@ class NewRoutineForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.addRoutine(this.state)
-    this.setState({
-      title: '', 
-      exercise_1: '', 
-      exercise_2: '',
-      exercise_3: '',
-      exercise_4: '',
-      exercise_5: ''
-    })
+      .then(res => {
+        this.props.history.push('/routines')
+      })
+    
   }
 
   render() {
