@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { addRoutine, ADD_ROUTINE } from '../../actions';
+import { connect } from 'react-redux';
 
 class NewRoutineForm extends Component {
   
@@ -22,8 +24,12 @@ class NewRoutineForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.addRoutine(this.state)
-      .then(res => {
+    addRoutine(this.state)
+      .then(routine => {
+        this.props.dispatch({
+          type: ADD_ROUTINE,
+          payload: routine
+        })
         this.props.history.push('/routines')
       })
     
@@ -104,4 +110,4 @@ class NewRoutineForm extends Component {
   }
 }
 
-export default NewRoutineForm;
+export default connect()(NewRoutineForm);

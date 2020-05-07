@@ -23,7 +23,6 @@ class App extends Component {
       workouts: [],
       loading: true
     }
-    this.addRoutine = this.addRoutine.bind(this)
     this.addWorkout = this.addWorkout.bind(this)
   }
 
@@ -40,24 +39,6 @@ class App extends Component {
       })
   }
 
-  addRoutine(routine) {
-    return fetch('http://localhost:3001/routines', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(routine)
-    })
-      .then(res => res.json())
-      .then(routine => {
-        this.setState((state) =>{
-          return {
-            routines: [...state.routines, routine]
-          }
-        })
-      })
-      
-  }
 
   addWorkout(workout) {
     return fetch('http://localhost:3001/workouts', {
@@ -91,7 +72,6 @@ class App extends Component {
             </Route>
             <Route path="/routines/new" render={(routerProps) => 
               <NewRoutineForm 
-                addRoutine={this.addRoutine} 
                 history={routerProps.history}
               />
             }>

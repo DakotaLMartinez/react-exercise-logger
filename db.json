@@ -35,6 +35,33 @@
       "exercise_4": "Medicine Ball Situps",
       "exercise_5": "Rope pulldowns",
       "id": 4
+    },
+    {
+      "title": "Covid-19",
+      "exercise_1": "sit",
+      "exercise_2": "on",
+      "exercise_3": "your",
+      "exercise_4": "but",
+      "exercise_5": "allday",
+      "id": 5
+    },
+    {
+      "title": "Core",
+      "exercise_1": "lazy",
+      "exercise_2": "i",
+      "exercise_3": "am",
+      "exercise_4": "too",
+      "exercise_5": "much",
+      "id": 6
+    },
+    {
+      "title": "Lazy time",
+      "exercise_1": "I",
+      "exercise_2": "don't ",
+      "exercise_3": "remember",
+      "exercise_4": "how",
+      "exercise_5": "to move",
+      "id": 7
     }
   ],
   "workouts": [
