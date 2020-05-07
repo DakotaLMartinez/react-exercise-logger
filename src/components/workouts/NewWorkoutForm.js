@@ -25,15 +25,9 @@ class NewWorkoutForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.addWorkout(this.state)
-    this.setState({
-      date: '', 
-      name: '',
-      exercise_1_notes: '', 
-      exercise_2_notes: '',
-      exercise_3_notes: '',
-      exercise_4_notes: '',
-      exercise_5_notes: ''
-    })
+      .then(res => {
+        this.props.history.push('/workouts')
+      })
   }
 
   render() {
@@ -41,8 +35,9 @@ class NewWorkoutForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <p>
-          <label htmlFor="date">Date</label>
+          <label className="block" htmlFor="date">Date</label>
           <input 
+            className="border"
             type="date" 
             name="date"
             id="date"
@@ -51,8 +46,9 @@ class NewWorkoutForm extends Component {
           />
         </p>
         <p>
-          <label htmlFor="name">Name</label>
+          <label className="block" htmlFor="name">Name</label>
           <input 
+            className="border"
             type="text" 
             name="name"
             id="name"
@@ -61,8 +57,9 @@ class NewWorkoutForm extends Component {
           />
         </p>
         <p>
-          <label htmlFor="exercise_1_notes">{exercise_1} Notes</label>
+          <label className="block" htmlFor="exercise_1_notes">{exercise_1} Notes</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_1_notes"
             id="exercise_1_notes"
@@ -71,8 +68,9 @@ class NewWorkoutForm extends Component {
           />
         </p>
         <p>
-          <label htmlFor="exercise_2_notes">{exercise_2} Notes</label>
+          <label className="block" htmlFor="exercise_2_notes">{exercise_2} Notes</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_2_notes"
             id="exercise_2_notes"
@@ -81,8 +79,9 @@ class NewWorkoutForm extends Component {
           />
         </p>
         <p>
-          <label htmlFor="exercise_3_notes">{exercise_3} notes</label>
+          <label className="block" htmlFor="exercise_3_notes">{exercise_3} notes</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_3_notes"
             id="exercise_3_notes"
@@ -91,8 +90,9 @@ class NewWorkoutForm extends Component {
           />
         </p>
         <p>
-          <label htmlFor="exercise_4_notes">{exercise_4} notes</label>
+          <label className="block" htmlFor="exercise_4_notes">{exercise_4} notes</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_4_notes"
             id="exercise_4_notes"
@@ -101,8 +101,9 @@ class NewWorkoutForm extends Component {
           />
         </p>
         <p>
-          <label htmlFor="exercise_5_notes">{exercise_5} notes</label>
+          <label className="block" htmlFor="exercise_5_notes">{exercise_5} notes</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_5_notes"
             id="exercise_5_notes"
@@ -110,7 +111,7 @@ class NewWorkoutForm extends Component {
             onChange={this.handleChange}
           />
         </p>
-        <input type="submit" value="Submit" />
+        <input className="px-2 py-1 bg-green-500" type="submit" value="Submit" />
       </form>
     )
   }

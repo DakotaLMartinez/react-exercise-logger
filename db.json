@@ -48,6 +48,50 @@
       "exercise_4_notes": "10 reps of 30lb",
       "exercise_5_notes": "10 reps of 20lb",
       "id": 1
+    },
+    {
+      "routine_id": 1,
+      "date": "2020-04-28",
+      "name": "Dakota",
+      "exercise_1_notes": "10 reps 250 lbs",
+      "exercise_2_notes": "5 reps 80 lbs",
+      "exercise_3_notes": "20",
+      "exercise_4_notes": "12 reps 60 lbs",
+      "exercise_5_notes": "12 reps 70 lbs",
+      "id": 2
+    },
+    {
+      "routine_id": 1,
+      "date": "",
+      "name": "randy",
+      "exercise_1_notes": "10 reps 250 lbs",
+      "exercise_2_notes": "5 reps 80 lbs",
+      "exercise_3_notes": "20",
+      "exercise_4_notes": "12 reps 60 lbs",
+      "exercise_5_notes": "12 reps 70 lbs",
+      "id": 3
+    },
+    {
+      "routine_id": 1,
+      "date": "",
+      "name": "Shaun",
+      "exercise_1_notes": "10 reps 250 lbs",
+      "exercise_2_notes": "5 reps 80 lbs",
+      "exercise_3_notes": "20",
+      "exercise_4_notes": "12 reps 60 lbs",
+      "exercise_5_notes": "12 reps 70 lbs",
+      "id": 4
+    },
+    {
+      "routine_id": 1,
+      "date": "2020-04-28",
+      "name": "daniel",
+      "exercise_1_notes": "10 reps of 150 lbs",
+      "exercise_2_notes": "10 reps of 20 squats",
+      "exercise_3_notes": "skipped",
+      "exercise_4_notes": "12 reps 60 lbs",
+      "exercise_5_notes": "10 reps of 20lb",
+      "id": 5
     }
   ]
 }

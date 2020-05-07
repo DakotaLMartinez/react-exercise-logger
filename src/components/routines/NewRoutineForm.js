@@ -35,6 +35,7 @@ class NewRoutineForm extends Component {
         <p>
           <label htmlFor="title">Title</label>
           <input 
+            className="border"
             type="text" 
             name="title"
             id="title"
@@ -45,6 +46,7 @@ class NewRoutineForm extends Component {
         <p>
           <label htmlFor="exercise_1">Exercise 1</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_1"
             id="exercise_1"
@@ -55,6 +57,7 @@ class NewRoutineForm extends Component {
         <p>
           <label htmlFor="exercise_2">Exercise 2</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_2"
             id="exercise_2"
@@ -65,6 +68,7 @@ class NewRoutineForm extends Component {
         <p>
           <label htmlFor="exercise_3">Exercise 3</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_3"
             id="exercise_3"
@@ -75,6 +79,7 @@ class NewRoutineForm extends Component {
         <p>
           <label htmlFor="exercise_4">Exercise 4</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_4"
             id="exercise_4"
@@ -85,6 +90,7 @@ class NewRoutineForm extends Component {
         <p>
           <label htmlFor="exercise_5">Exercise 5</label>
           <input 
+            className="border"
             type="text" 
             name="exercise_5"
             id="exercise_5"

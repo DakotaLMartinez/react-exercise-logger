@@ -20,7 +20,7 @@ class RoutinesContainer extends Component {
           handleAddWorkoutClick={this.handleAddWorkoutButtonClick}
         />
         <h4>
-          <Link to="/routines/new">Add Routines</Link>
+          <Link className="text-2xl bold" to="/routines/new">Add Routines</Link>
         </h4>
       </React.Fragment>
     )
@@ -28,7 +28,7 @@ class RoutinesContainer extends Component {
   render() {
     return (
       <section>
-        <h3>Routines List</h3>
+        <h4 className="text-3xl bold">Routines</h4>
         {this.props.loading ? 'Loading...' : this.renderLoadedContent()}
       </section>
     )
