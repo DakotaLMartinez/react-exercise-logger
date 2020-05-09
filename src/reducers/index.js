@@ -4,7 +4,8 @@ import {
   ADD_ROUTINE,
   FETCH_WORKOUTS,
   RECEIVE_WORKOUTS,
-  ADD_WORKOUT
+  ADD_WORKOUT,
+  FETCHING_ROUTINES
 } from '../actions';
 
 const routines = (state = {
@@ -13,6 +14,20 @@ const routines = (state = {
   loading: false 
 }, action) => {
   switch(action.type) {
+    case FETCHING_ROUTINES:
+      return {
+        ...state,
+        loading: true
+      }
+    case RECEIVE_ROUTINES:
+      return {
+        items: action.payload.map(routine => routine.id),
+        itemsById: action.payload.reduce((idMap, routine) => {
+          idMap[routine.id] = routine;
+          return idMap;
+        },{}),
+        loading: false
+      }
     case ADD_ROUTINE: 
       return {
         ...state,

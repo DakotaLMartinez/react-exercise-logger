@@ -68,7 +68,7 @@ class App extends Component {
         <div className="w-5/6 mx-auto">
           <Switch>
             <Route exact path="/routines">
-              <RoutinesContainer routines={this.state.routines} /> 
+              <RoutinesContainer /> 
             </Route>
             <Route path="/routines/new" render={(routerProps) => 
               <NewRoutineForm 

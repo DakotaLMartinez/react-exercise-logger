@@ -24,12 +24,8 @@ class NewRoutineForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    addRoutine(this.state)
-      .then(routine => {
-        this.props.dispatch({
-          type: ADD_ROUTINE,
-          payload: routine
-        })
+    this.props.addRoutine(this.state)
+      .then(() => {
         this.props.history.push('/routines')
       })
     
@@ -110,4 +106,4 @@ class NewRoutineForm extends Component {
   }
 }
 
-export default connect()(NewRoutineForm);
+export default connect(null, { addRoutine })(NewRoutineForm);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RoutinesList from './RoutinesList';
-
+import { connect } from 'react-redux';
+import { fetchRoutines, FETCHING_ROUTINES, RECEIVE_ROUTINES } from '../../actions';
 import {
   Link
 } from "react-router-dom";
@@ -10,6 +11,10 @@ class RoutinesContainer extends Component {
   constructor(props) {
     super(props);
     this.renderLoadedContent = this.renderLoadedContent.bind(this)
+  }
+
+  componentDidMount() {
+    this.props.fetchRoutines()
   }
 
   renderLoadedContent() {
@@ -34,5 +39,10 @@ class RoutinesContainer extends Component {
     )
   }
 }
-
-export default RoutinesContainer
+const mapStateToProps = ({routines}) => {
+  return {
+    routines: routines.items.map(routineId => routines.itemsById[routineId]),
+    loading: routines.loading
+  }
+}
+export default connect(mapStateToProps, { fetchRoutines })(RoutinesContainer)
