@@ -85,10 +85,7 @@ class App extends Component {
             }>
             </Route>
             <Route exact path="/workouts">
-              <WorkoutsContainer 
-                workouts={this.state.workouts} 
-                routines={this.state.routines}
-              /> 
+              <WorkoutsContainer /> 
             </Route>
           </Switch>
         </div>

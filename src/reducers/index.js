@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { 
   RECEIVE_ROUTINES,
   ADD_ROUTINE,
-  FETCH_WORKOUTS,
+  FETCHING_WORKOUTS,
   RECEIVE_WORKOUTS,
   ADD_WORKOUT,
   FETCHING_ROUTINES
@@ -47,7 +47,33 @@ const workouts = (state = {
   itemsById: {},
   loading: false 
 }, action) => {
-  return state;
+  switch(action.type) {
+    case FETCHING_WORKOUTS:
+      return {
+        ...state,
+        loading: true
+      }
+    case RECEIVE_WORKOUTS:
+      return {
+        items: action.payload.map(workout => workout.id),
+        itemsById: action.payload.reduce((idMap, workout) => {
+          idMap[workout.id] = workout;
+          return idMap;
+        },{}),
+        loading: false
+      }
+    case ADD_WORKOUT: 
+      return {
+        ...state,
+        items: state.items.concat(action.payload.id),
+        itemsById: {
+          ...state.itemsById,
+          [action.payload.id]: action.payload
+        }
+      }
+    default:
+      return state;
+  }
 }
 
 const rootReducer = combineReducers({

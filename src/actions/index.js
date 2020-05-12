@@ -1,7 +1,7 @@
 export const FETCHING_ROUTINES = "FETCHING_ROUTINES"
 export const RECEIVE_ROUTINES = "RECEIVE_ROUTINES"
 export const ADD_ROUTINE = "ADD_ROUTINE"
-export const FETCH_WORKOUTS = "FETCH_WORKOUTS"
+export const FETCHING_WORKOUTS = "FETCHING_WORKOUTS"
 export const RECEIVE_WORKOUTS = "RECEIVE_WORKOUTS"
 export const ADD_WORKOUT = "ADD_WORKOUT"
 
@@ -40,4 +40,18 @@ export const fetchRoutines = () => {
       })   
   }
   console.log('e')  
+}
+
+export const fetchWorkouts = () => {
+  return dispatch => {
+    dispatch({type: FETCHING_WORKOUTS})
+    fetch('http://localhost:3001/workouts')
+      .then(res => res.json())
+      .then(workouts => {
+        dispatch({
+          type: RECEIVE_WORKOUTS, 
+          payload: workouts
+        })
+      })
+  }
 }
