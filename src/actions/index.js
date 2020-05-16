@@ -42,6 +42,40 @@ export const fetchRoutines = () => {
   console.log('e')  
 }
 
+export const fetchRoutine = (routineId) => {
+  return dispatch => {
+    dispatch({ type: FETCHING_ROUTINES })
+    return fetch(`http://localhost:3001/routines/${routineId}`)
+      .then(res => res.json()) 
+      .then(routine => {
+        console.log('d')
+        dispatch({
+          type: RECEIVE_ROUTINES, 
+          payload: [routine]
+        })
+      })  
+  } 
+}
+
+export const addWorkout = workout => {
+  return dispatch => {
+    return fetch('http://localhost:3001/workouts', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(workout)
+      })
+        .then(res => res.json())
+        .then(workout => {
+          dispatch({
+            type: ADD_WORKOUT,
+            payload: workout
+          })
+        })
+  }
+}
+
 export const fetchWorkouts = () => {
   return dispatch => {
     dispatch({type: FETCHING_WORKOUTS})
@@ -55,3 +89,4 @@ export const fetchWorkouts = () => {
       })
   }
 }
+

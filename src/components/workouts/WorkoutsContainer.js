@@ -17,10 +17,16 @@ class WorkoutsContainer extends Component {
     return (
       <section id="workouts">
         <h4 className="text-2xl bold">Workouts</h4>
-        <WorkoutList 
+        {this.props.routines.map(routine =>(
+          <WorkoutList 
+            workouts={this.props.workouts.filter(workout => workout.routine_id == routine.id)}
+            routine={routine}
+          />
+        ))}
+        {/* <WorkoutList 
           workouts={this.props.workouts}
-          routines={this.props.routines}
-        />
+          routine={this.props.routines[0]}
+        /> */}
       </section>
     )
   }

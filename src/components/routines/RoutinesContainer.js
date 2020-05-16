@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import RoutinesList from './RoutinesList';
 import { connect } from 'react-redux';
 import { fetchRoutines, FETCHING_ROUTINES, RECEIVE_ROUTINES } from '../../actions';
-import {
-  Link
-} from "react-router-dom";
+import { ButtonLink } from "../ui";
 
 class RoutinesContainer extends Component {
 
@@ -25,7 +23,7 @@ class RoutinesContainer extends Component {
           handleAddWorkoutClick={this.handleAddWorkoutButtonClick}
         />
         <h4>
-          <Link className="text-2xl bold" to="/routines/new">Add Routines</Link>
+          <ButtonLink pathname={"/routines/new"}>Add Routine</ButtonLink>
         </h4>
       </React.Fragment>
     )

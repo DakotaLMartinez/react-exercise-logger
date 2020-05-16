@@ -173,6 +173,28 @@
       "exercise_4_notes": "12 reps 60 lbs",
       "exercise_5_notes": "10 reps of 20lb",
       "id": 5
+    },
+    {
+      "date": "",
+      "name": "DAkota",
+      "exercise_1_notes": "too hard",
+      "exercise_2_notes": "oww",
+      "exercise_3_notes": "oh my god oh my ogd oh my god",
+      "exercise_4_notes": "ooof",
+      "exercise_5_notes": "ahhhhhh!",
+      "routine_id": 4,
+      "id": 6
+    },
+    {
+      "date": "2020-05-12",
+      "name": "Dakota",
+      "exercise_1_notes": "really tired",
+      "exercise_2_notes": "so many",
+      "exercise_3_notes": "woof",
+      "exercise_4_notes": "ahhhh",
+      "exercise_5_notes": "nnnngggg",
+      "routine_id": 1,
+      "id": 7
     }
   ]
 }

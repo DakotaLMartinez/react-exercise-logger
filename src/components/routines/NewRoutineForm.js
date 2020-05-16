@@ -100,7 +100,11 @@ class NewRoutineForm extends Component {
             onChange={this.handleChange}
           />
         </p>
-        <input type="submit" value="Submit" />
+        <input
+          className="px-2 py-1 bg-green-500"
+          type="submit" 
+          value="Submit" 
+        />
       </form>
     )
   }
